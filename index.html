@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Text ex</title>
+</head>
+<body>
+<form>
+    <input id="First" type="text" placeholder="First words" value="">
+    <input id="Second" type="text" placeholder="Second words" value="">
+    <input type="file" onchange="readFile(this)">
+</form>
+
+</body>
+<script>
+    function readFile(inputFile) {
+        let file = inputFile.files[0];
+        let reader = new FileReader();
+        reader.readAsText(file);
+
+        reader.onload = function () {
+
+            let textData = reader.result.split(" ");
+
+            let firstWords = document.getElementById("First").value,
+                firstIndex = null,
+                secondIndex = null,
+                secondWords = document.getElementById("Second").value,
+                minDistance = null;
+
+            // file = file.split(" ");
+
+            for (let i = 0; i < textData.length; i++) {
+                if (textData[i] === firstWords) {
+                    firstIndex = i;
+                } else if (textData[i] === secondWords) {
+                    secondIndex = i;
+                }
+
+                if (firstWords !== null && secondIndex !== null) {
+                    let distance = Math.abs(firstIndex - secondIndex);
+                    if (minDistance === null || minDistance > distance) {
+                        minDistance = distance;
+                    }
+                }
+            }
+            console.log(minDistance);
+            return minDistance;
+        };
+
+        reader.onerror = function () {
+            console.log(reader.error);
+        };
+    }
+</script>
+</html>
