@@ -52,8 +52,17 @@
       <updated>1605696077394</updated>
       <workItem from="1605696079370" duration="900000" />
       <workItem from="1605697033032" duration="3894000" />
-      <workItem from="1605701198719" duration="31000" />
+      <workItem from="1605701198719" duration="445000" />
+      <workItem from="1605704589208" duration="73000" />
     </task>
+    <task id="LOCAL-00001" summary="changed the condition">
+      <created>1605701379140</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1605701379140</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -71,5 +80,9 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="changed the condition" />
+    <option name="LAST_COMMIT_MESSAGE" value="changed the condition" />
   </component>
 </project>

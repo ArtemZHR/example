@@ -11,6 +11,8 @@
     <input type="file" onchange="readFile(this)">
 </form>
 
+<span id="finish"></span>
+
 </body>
 <script>
     function readFile(inputFile) {
@@ -47,6 +49,7 @@
                 }
             }
             console.log(minDistance);
+            document.getElementById('finish').innerHTML = minDistance;
             return minDistance;
         };
 
