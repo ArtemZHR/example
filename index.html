@@ -28,6 +28,7 @@
 
             let firstWords = document.getElementById("First").value.toLowerCase(),
                 firstIndex = 0,
+                temp = 1,
                 secondWords = document.getElementById("Second").value.toLowerCase(),
                 secondIndex = 0,
                 distance = 0,
@@ -39,9 +40,10 @@
 
             for (let i = 0; i < textData.length; i++) {
 
-                
-                if (textData[i] === firstWords && firstIndex === 0) {
+
+                if (textData[i] === firstWords && temp === 1) {
                     firstIndex = i;
+                    --temp;
                 }
 
                 if (textData[i] === secondWords) {
