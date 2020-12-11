@@ -5,26 +5,25 @@
     <title>Text ex</title>
 </head>
 <body>
-<form>
+<div>
     <textarea id="First" type="text" placeholder="First words" value=""></textarea>
     <textarea id="Second" type="text" placeholder="Second words" value=""></textarea>
-    <input type="file" onchange="readFile(this)">
+    <textarea id="TextUser" type="text" placeholder="Your text" value=""></textarea>
+    <p><button type="submit" onclick="readFile()">Test</button></p>
 
-</form>
+</div>
 
 <span id="minDis"></span>
 <span id="maxDis"></span>
 
 </body>
 <script>
-    function readFile(inputFile) {
-        let file = inputFile.files[0];
-        let reader = new FileReader();
-        reader.readAsText(file);
+    function readFile(){
 
-        reader.onload = function () {
+            const UserText = document.getElementById("TextUser").value.toLowerCase();;
+            console.log(UserText);
             const regex = /[!"#$%&'()*+,-./:;<=>?@[\]^_`{|}~]/g;
-            const textData = reader.result.toLowerCase().replace(regex, '').split(' ');
+            const textData = UserText.replace(regex, '').split(' ');
             console.log(textData);
 
             let firstWords = document.getElementById("First").value.toLowerCase(),
@@ -65,11 +64,6 @@
             document.getElementById('minDis').innerHTML = String(minDistance);
 
             document.getElementById('maxDis').innerHTML = String(maxDistance);
-        };
-
-        reader.onerror = function () {
-            console.log(reader.error);
-        };
-    }
+        }
 </script>
 </html>
