@@ -6,12 +6,14 @@
 </head>
 <body>
 <form>
-    <input id="First" type="text" placeholder="First words" value="">
-    <input id="Second" type="text" placeholder="Second words" value="">
+    <textarea id="First" type="text" placeholder="First words" value=""></textarea>
+    <textarea id="Second" type="text" placeholder="Second words" value=""></textarea>
     <input type="file" onchange="readFile(this)">
+
 </form>
 
-<span id="finish"></span>
+<span id="minDis"></span>
+<span id="maxDis"></span>
 
 </body>
 <script>
@@ -21,19 +23,24 @@
         reader.readAsText(file);
 
         reader.onload = function () {
+            const regex = /[!"#$%&'()*+,-./:;<=>?@[\]^_`{|}~]/g;
+            const textData = reader.result.toLowerCase().replace(regex, '').split(' ');
+            console.log(textData);
 
-            let textData = reader.result.split(" ");
+            let firstWords = document.getElementById("First").value.toLowerCase(),
+                firstIndex = 0,
+                secondWords = document.getElementById("Second").value.toLowerCase(),
+                secondIndex = 0,
+                distance = 0,
+                minDistance = 0,
+                maxDistance = 0;
 
-            let firstWords = document.getElementById("First").value,
-                firstIndex = null,
-                secondIndex = null,
-                secondWords = document.getElementById("Second").value,
-                minDistance = null;
 
             // file = file.split(" ");
 
             for (let i = 0; i < textData.length; i++) {
-                if (textData[i] === firstWords) {
+
+                if (textData[i] === firstWords && firstIndex === 0) {
                     firstIndex = i;
                 }
 
@@ -41,16 +48,23 @@
                     secondIndex = i;
                 }
 
-                if (firstWords !== null && secondIndex !== null) {
-                    let distance = Math.abs(firstIndex - secondIndex);
-                    if (minDistance === null || minDistance > distance) {
+                if (firstIndex !== 0 && secondIndex !== 0) {
+                    if (secondIndex > firstIndex) distance = secondIndex - firstIndex;
+                    else distance = firstIndex - secondIndex; //revers search
+
+                    if (minDistance === 0) {
                         minDistance = distance;
+                    } else if (maxDistance < distance) {
+                        maxDistance = distance;
                     }
                 }
             }
-            console.log(minDistance);
-            document.getElementById('finish').innerHTML = minDistance;
-            return minDistance;
+
+            console.log(` Minimum distance between words ${minDistance}\n\r Maximal distance between words ${maxDistance}`);
+
+            document.getElementById('minDis').innerHTML = String(minDistance);
+
+            document.getElementById('maxDis').innerHTML = String(maxDistance);
         };
 
         reader.onerror = function () {
