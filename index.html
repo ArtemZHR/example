@@ -52,9 +52,9 @@
                     else distance = firstIndex - secondIndex; //revers search
 
                     if (minDistance === 0) {
-                        minDistance = distance;
+                        minDistance = --distance;
                     } else if (maxDistance < distance) {
-                        maxDistance = distance;
+                        maxDistance = --distance;
                     }
                 }
             }
