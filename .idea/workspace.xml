@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e9287a7e-3a1b-4925-b376-f4f04fcc16fd" name="Default Changelist" comment="">
+    <list default="true" id="e9287a7e-3a1b-4925-b376-f4f04fcc16fd" name="Default Changelist" comment="changed the condition">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
     </list>
@@ -57,7 +57,7 @@
       <workItem from="1605708602404" duration="32000" />
       <workItem from="1605709090730" duration="904000" />
       <workItem from="1607676550363" duration="5454000" />
-      <workItem from="1607691679290" duration="5090000" />
+      <workItem from="1607691679290" duration="7119000" />
     </task>
     <task id="LOCAL-00001" summary="changed the condition">
       <created>1605701379140</created>

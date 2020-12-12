@@ -20,16 +20,16 @@
 <script>
     function readFile(){
 
-            const UserText = document.getElementById("TextUser").value.toLowerCase();;
+            const UserText = document.getElementById("TextUser").value.toLowerCase().trim();
             console.log(UserText);
             const regex = /[!"#$%&'()*+,-./:;<=>?@[\]^_`{|}~]/g;
             const textData = UserText.replace(regex, '').split(' ');
             console.log(textData);
 
-            let firstWords = document.getElementById("First").value.toLowerCase(),
+            let firstWords = document.getElementById("First").value.toLowerCase().trim(),
                 firstIndex = null,
                 temp = 1,
-                secondWords = document.getElementById("Second").value.toLowerCase(),
+                secondWords = document.getElementById("Second").value.toLowerCase().trim(),
                 secondIndex = null,
                 distance = null,
                 minDistance = null,
